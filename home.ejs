@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.title %></title>
+    <link rel="stylesheet" href="/css/task.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= weekDays %></h1>
+        <h2>To-Do App</h2>
+        <form action="/create" method="post">
+            <input class="add-task" type="text" name="task" placeholder="Enter your task" autocomplete="off">
+            <input class="add-button" type="submit" value="Add">
+        </form>
+        <ul>
+            <% 
+            for(let i of todo_task){%>
+                <li><div><p class="todo-task"><%= i.task %></p></div>
+                <div><a href="/delete-task/?id=<%=i._id%>"><button class="delete-button">Delete</button></a></div>
+                </li>
+                <% }
+            %>
+        </ul>
+    </div>
+</body>
+</html>
